@@ -1,18 +1,14 @@
-from rest_framework.routers import DefaultRouter
-from .views import ProjectViewSet
-from .views import AppartmentViewSet
-from .views import AppartmentDetailByProject
-from django.urls import path
+from rest_framework_nested import routers
+from django.urls import path, include
+from .views import ProjectViewSet, ClientViewSet
 
-router = DefaultRouter()
-
-# Register the viewsets with the router
-# The url will be http://<your-domain>/api/projects/ for ProjectViewSet
+router = routers.SimpleRouter()
 router.register(r'projects', ProjectViewSet)
 
-# The url will be http://<your-domain>/api/apartments/ for AppartmentViewSet
-router.register(r'appartements', AppartmentViewSet, basename='appartements')
+projects_router = routers.NestedSimpleRouter(router, r'projects', lookup='project')
+projects_router.register(r'clients', ClientViewSet, basename='project-clients')
 
-urlpatterns = router.urls +[
-        path('projects/<int:project_id>/<int:appartment_id>/', AppartmentDetailByProject.as_view()),
-]  
+urlpatterns = [
+    path('', include(router.urls)),
+    path('', include(projects_router.urls)),
+]
