@@ -4,29 +4,33 @@ import { Routes, Route, Link } from 'react-router-dom'; // Importation des route
 import ProjectList from './components/Projects/ProjectList'; // On importe le composant projects
 import ProjectForm from './components/Projects/ProjectForm'; // On importe le composant ProjectForm
 import ProjectDetails from './components/Projects/ProjectDetails'; // On importe le composant ProjectDetails
-
+import NavBar from './components/NavBar/NavBar'; // On importe la barre de navigation
+import Footer from './components/Footer/Footer'; // On importe le composant Footer
+import Home from './pages/Home'; // On importe la page d'accueil
+import Create from './pages/Create'; // On importe la page de création de projet
+import Projets from './pages/Projets';
 
 function App() {
 
 
   return (
-    <div>
-      <h1>Mes Projets</h1>
-      <ProjectList />
-      <h2>Créer ou Mettre à jour un Projet</h2>
-      <ProjectForm />
-      <nav>
-        <Link to="/">Acceuil</Link>
-        <Link to="/projects/create">Créer un Projet</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<ProjectList />} />
-        <Route path="/projects/:project_id" element={<ProjectDetails />} />
-        <Route path="/projects/edit/:project_id" element={<ProjectForm />} />
-        <Route path="/projects/create" element={<ProjectForm />} />
-      </Routes>
-    </div>
+      <>
+        <div className="flex flex-col min-h-screen">
+          <NavBar />
+          
+          <main className="flex-grow w-full">
+            <div className='max-w-6xl mx-auto'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projets />} />
+              <Route path="/create" element={<Create />} />
+            </Routes>
+            </div>
+          </main>
+          
+          <Footer />
+        </div>
+      </>
   );
 }
 
