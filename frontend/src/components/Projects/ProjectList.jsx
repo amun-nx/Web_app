@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';  // Importation des hooks React
-import api from '../api'; // On importe l'instance Axios
+import api from '../../api'; // On importe l'instance Axios
 
-function Projects(){
+function ProjectList(){
     const [projects, setProjects] = useState([]);  // Stocke les projets
 
     useEffect(() => {
@@ -16,6 +16,18 @@ function Projects(){
         });
     }, []);
 
+    const handleDelete = ((e) => {
+        const projectId = e.target.value;  // Récupère l'ID du projet à supprimer
+        api.delete(`projects/${projectId}/`)
+        .then(res => {
+            console.log("Projet supprimé :", res.data);  // Affiche le projet supprimé
+            setProjects(projects.filter(proj => proj.id !== projectId));  // Met à jour l'état pour retirer le projet supprimé
+        })
+        .catch(err => {
+            console.error("Erreur lors de la suppression du projet :", err);
+        });
+    });
+
     return (
       <ul>
         {projects.map(proj => (
@@ -27,10 +39,11 @@ function Projects(){
                 </li>
               ))}
             </ul>
+            <button value={proj.id} onClick={handleDelete}>Supprimer</button> 
           </li>  // Affiche le nom de chaque projet
         ))}
       </ul>
     );
 }
 
-export default Projects;
+export default ProjectList;
