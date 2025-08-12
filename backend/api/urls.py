@@ -1,7 +1,7 @@
 # urls.py
 from django.urls import path, include
 from rest_framework_nested import routers
-from .views import ProjectViewSet, ClientViewSet, SituationViewSet
+from .views import ProjectViewSet, ClientViewSet, SituationViewSet, UserCreateView
 
 # Router racine
 router = routers.DefaultRouter()
@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('', include(projects_router.urls)),
     path('', include(clients_router.urls)),
+    path('users/', UserCreateView.as_view(), name='user-create')
 ]

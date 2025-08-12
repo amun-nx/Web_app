@@ -8,6 +8,7 @@ import Create from './pages/Create'; // On importe la page de création de proje
 import Projets from './pages/Projets';
 import Tips from './pages/Tips'; // On importe la page des conseils
 import Login from './pages/LoginPage'; // On importe la page de connexion
+import SignUp from './pages/SignUpPage'; // On importe la page d'inscription
 
 import { useLocation } from "react-router-dom";
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/create" element={<Create />} />
                 <Route path="/tips" element={<Tips />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
               </Routes>
             </div>
           ) : (

@@ -1,7 +1,17 @@
 # views.py
+
+#| Classe           | Usage                             | Méthodes HTTP gérées          |
+#| ---------------- | --------------------------------- | ----------------------------- |
+#| `APIView`        | Personnaliser complètement        | Tu dois gérer tout            |
+#| `GenericAPIView` | Base pour views génériques        | Pas de méthodes par défaut    |
+#| `CreateAPIView`  | Endpoint POST pour créer un objet | POST uniquement               |
+#| `ModelViewSet`   | CRUD complet sur un modèle        | GET, POST, PUT, PATCH, DELETE |
+
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import generics
 from .models import Project, Client, Situation
-from .serializers import ProjectSerializer, ClientSerializer, SituationSerializer
+from .serializers import ProjectSerializer, ClientSerializer, SituationSerializer, UserSerializer
+from django.contrib.auth.models import User
 
 class ProjectViewSet(ModelViewSet):
     queryset = Project.objects.all()
@@ -26,3 +36,8 @@ class SituationViewSet(ModelViewSet):
         if client_id:
             return self.queryset.filter(client_id=client_id)
         return self.queryset
+    
+class UserCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
