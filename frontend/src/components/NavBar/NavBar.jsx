@@ -13,7 +13,7 @@ function NavBar() {
 
       <ul className="flex space-x-4">
         {/*<li><button>Language</button></li>*/}
-        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/login">Profile</Link></li>
       </ul>
     </nav>
   );

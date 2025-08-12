@@ -1,28 +1,48 @@
 import React from 'react';
-import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/Footer/Footer';
-import TravelCard from '../components/TravelCard'; // Assuming you have a TravelCard component
+import { useState } from 'react';
+import TravelCard from '../components/Planer/TravelCard'; // Assuming you have a TravelCard component
 
 
 const Create = () => {
+    const [cards, setCards] = useState([1]); // Initialize with one day
+    const handleAddDay = () => {
+        setCards([...cards, cards.length + 1]); // Add a new day
+    }
+    const handleDeletCard = (id) => {
+        setCards(cards.filter(cardId => cardId !== id)); // Remove the day
+    }
+
     return (
         <>
         <div className = " relative">
             <div className="flex flex-col absolute z-10 border rounded-lg h-180 w-80 p-4 b-4 m-4 bg-white">
-                <div className  = "border">
-                    <h1>Title</h1>
+                <div className  = "pb-2">
+                    <h1>Voyage</h1>
                 </div>
-                <div className = "flex-1 flex flex-col overflow-y-auto">
-                    <TravelCard />
+                <div className = "flex-1 flex flex-col overflow-y-auto border rounded-lg p-2">
+                    {cards.map((id) => (
+                        <TravelCard key={id} id= {id} onDelete={handleDeletCard} />
+                    ))}
+                    <div className="flex items-center justify-center border rounded-lg p-2 m-2 bg-blue-500 text-white cursor-pointer">
+                        <button onClick = {handleAddDay}>
+                            Add a day
+                        </button>
+                    </div>
+
+                
+                </div>
+                <div className = "flex flex-row justify-evenly">
+                    <button className = "bg-green-500 text-white rounded-lg p-2 m-2">Save</button>
+                    <button className = "bg-blue-500 text-white rounded-lg p-2 m-2">Share</button>
                 </div>
 
             </div>
 
-            <div className="absolute z-10 left-90 ">
+            <div className="absolute z-10 left-85 ">
                 <input type="text" placeholder="Search..." className="border rounded-lg p-2 m-4 w-128 bg-white" />
             </div>
             
-            <div className = "absolute z-0">
+            <div className = "absolute z-0 w-full h-screen">
                 <img src="/maps.png"/>
             </div>
 

@@ -1,5 +1,5 @@
 const HourColumn = () => {
-  const hours = Array.from({ length: 25 }, (_, i) => `${(i).toString().padStart(2, '0')}h`);
+  const hours = Array.from({ length: 24 }, (_, i) => `${(i).toString().padStart(2, '0')}h`);
 
   return (
     <div className="flex flex-col text-sm text-gray-500 w-8">

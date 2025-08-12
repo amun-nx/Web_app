@@ -37,7 +37,9 @@ const Home = () => {
             <Card />
         </div>
         <div className="flex flex-col justify-center items-center">
-            <h1 className="p-8">Tendances</h1>
+            <div>
+                <h1 className="p-8">Tendances</h1>
+            </div>
         </div>
     </div>
   );

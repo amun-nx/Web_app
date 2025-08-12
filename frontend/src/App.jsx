@@ -7,6 +7,7 @@ import Home from './pages/Home'; // On importe la page d'accueil
 import Create from './pages/Create'; // On importe la page de création de projet
 import Projets from './pages/Projets';
 import Tips from './pages/Tips'; // On importe la page des conseils
+import Login from './pages/LoginPage'; // On importe la page de connexion
 
 import { useLocation } from "react-router-dom";
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/projects" element={<Projets />} />
                 <Route path="/create" element={<Create />} />
                 <Route path="/tips" element={<Tips />} />
+                <Route path="/login" element={<Login />} />
               </Routes>
             </div>
           ) : (
