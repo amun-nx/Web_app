@@ -1,83 +1,44 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Menu, MenuButton, MenuItem, MenuItems, MenuSeparator } from '@headlessui/react'
+import { Link } from "react-router-dom";
+import React from 'react';
 
-export default function Example() {
+
+const DropDown = () => {
   return (
-    <Menu as="div" className="relative inline-block">
-      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring-1 inset-ring-gray-300 hover:bg-gray-50">
-        Options
-        <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
+    <Menu>
+      <MenuButton>
+        <img src="./avatar.svg" alt="" className="h-7 bg-white rounded-full"/>
       </MenuButton>
-
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-      >
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Edit
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Duplicate
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Archive
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Move
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Share
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Add to favorites
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-            >
-              Delete
-            </a>
-          </MenuItem>
-        </div>
+      <MenuItems anchor="bottom end" className="bg-white text-black rounded-lg shadow-lg p-2 border w-48">
+        <MenuItem>
+          <Link className="block data-focus:bg-blue-100 p-1" to="/login">
+            Se connecter
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link className="block data-focus:bg-blue-100 p-1" to="/signup">
+            S'inscrire
+          </Link>
+        </MenuItem>
+        <MenuSeparator className="my-1 h-px bg-black"/>
+        <MenuItem>
+          <Link className="block data-focus:bg-blue-100 p-1" to="/settings">
+            Réglages
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link className="block data-focus:bg-blue-100 p-1" to="/contact">
+            Contact
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link className="block data-focus:bg-blue-100 p-1" to="/about">
+            À propos
+          </Link>
+        </MenuItem>
       </MenuItems>
     </Menu>
-  )
+  );
 }
+
+export default DropDown;

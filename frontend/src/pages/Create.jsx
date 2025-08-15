@@ -15,10 +15,24 @@ const Create = () => {
     return (
         <>
         <div className = " relative">
-            <div className="flex flex-col absolute z-10 border rounded-lg h-180 w-80 p-4 b-4 m-4 bg-white">
-                <div className  = "pb-2">
+            <div className="flex flex-col absolute z-10 border rounded-lg h-180 w-80 px-4 b-4 m-4 bg-white">
+                <div className  = "py-2">
                     <h1>Voyage</h1>
                 </div>
+                <div className = "flex flex-row justify-between gap-2">
+                    <div>
+                        D : <input type="date" className="border rounded px-2 py-1 text-sm w-40" />
+                    </div>
+                    <div>
+                        P :
+                            <select className="border rounded px-2 py-1">
+                                {[...Array(10)].map((_, i) => (
+                                <option key={i} value={i + 1}>{i + 1}</option>
+                                ))}
+                            </select>
+                    </div>
+                </div>
+
                 <div className = "flex-1 flex flex-col overflow-y-auto border rounded-lg p-2">
                     {cards.map((id) => (
                         <TravelCard key={id} id= {id} onDelete={handleDeletCard} />

@@ -3,7 +3,7 @@ import TipCard from "../components/TipCard";
 const Tips = () => {
     return (
         <>
-            <div className="flex flex-col items-center p-8">
+            {/* <div className="flex flex-col items-center p-8">
                 <h1 className="text-4xl font-bold mb-4">Tips Page</h1>
                 <p className="text-lg">Here are some tips to help you get started !</p>
             </div>
@@ -23,7 +23,12 @@ const Tips = () => {
                     <TipCard tip = "Weather"/>
                     <TipCard tip = "Phone"/>
                 </div>
-            </div>
+            </div> */}
+        <div className="flex flex-col items-center justify-center h-screen">
+        <h1 className="text-2xl font-bold mb-4">Conseils</h1>
+        <p className="text-lg">Cette page est en cours de développement.</p>
+        <p className="text-sm text-gray-500">Restez à l'écoute pour plus de fonctionnalités !</p>
+        </div>
         </>
 
     );

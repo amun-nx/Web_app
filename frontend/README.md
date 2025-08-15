@@ -14,7 +14,9 @@ If you are developing a production application, we recommend using TypeScript wi
 2 commandes à se rappeler :
 
 BACKEND : 
-
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 
 FRONTEND : 
 

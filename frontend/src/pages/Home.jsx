@@ -30,7 +30,7 @@ const Home = () => {
                 <input type="date" placeholder="Départ" className="px-4 py-2 border rounded" />
                 <input type="date" placeholder="Arrivée" className="px-4 py-2 border rounded" />
                 <input type="number" placeholder="Personne ?" className="px-4 py-2 border rounded" />
-                <button onClick={handleClick} className="px-4 py-2 text-white rounded">Créer</button>
+                <button onClick={handleClick} className="px-4 py-2 border rounded">Créer</button>
                 <button className="px-4 py-2 border rounded">Option avancée</button>
             </div>
         </div>
@@ -45,11 +45,6 @@ const Home = () => {
             <button onClick={() => setCards([...cards, cards.length + 1])} className="p-4 bg-blue-500 text-white rounded">
                 Ajouter un projet
             </button>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-            <div>
-                <h1 className="p-8">Tendances</h1>
-            </div>
         </div>
     </div>
   );

@@ -9,6 +9,11 @@ import Projets from './pages/Projets';
 import Tips from './pages/Tips'; // On importe la page des conseils
 import Login from './pages/LoginPage'; // On importe la page de connexion
 import SignUp from './pages/SignUpPage'; // On importe la page d'inscription
+import Stats from './pages/Stats'; // On importe la page des statistiques
+import About from './pages/About'; // On importe la page à propos
+import Contact from './pages/Contact'; // On importe la page de contact
+import Settings from './pages/Settings'; // On importe la page des réglages
+import Privacy from './pages/Privacy';
 
 import { useLocation } from "react-router-dom";
 
@@ -28,17 +33,20 @@ function App() {
             <div className="max-w-6xl mx-auto">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/projects" element={<Projets />} />
                 <Route path="/create" element={<Create />} />
+                <Route path="/stats" element={<Stats />} />
                 <Route path="/tips" element={<Tips />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/privacy" element={<Privacy />} />
               </Routes>
             </div>
-          ) : (
+          ) : ( 
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projets />} />
               <Route path="/create" element={<Create />} />
               <Route path="/tips" element={<Tips />} />
             </Routes>
